@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Unidad 1</title>
+
+<style>
+body {
+    font-family: Arial;
+    background: #0f172a;
+    color: white;
+    margin: 0;
+}
+
+h1 {
+    text-align: center;
+    color: #22c55e;
+    padding: 20px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.card {
+    background: #1e293b;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.card:hover {
+    background: #334155;
+}
+
+.file-name {
+    margin-top: 10px;
+    color: #94a3b8;
+    font-size: 13px;
+}
+
+a {
+    display: block;
+    text-align: center;
+    margin: 20px;
+    color: #38bdf8;
+}
+</style>
+
+<script>
+function guardarArchivo(input, semana) {
+    let archivo = input.files[0];
+
+    if (archivo) {
+        let lector = new FileReader();
+
+        lector.onload = function(e) {
+            localStorage.setItem("archivo"+semana, e.target.result);
+            localStorage.setItem("nombre"+semana, archivo.name);
+            mostrarArchivo(semana);
+        };
+
+        lector.readAsDataURL(archivo); // convierte a base64
+    }
+}
+
+function mostrarArchivo(semana){
+    let data = localStorage.getItem("archivo"+semana);
+    let nombre = localStorage.getItem("nombre"+semana);
+
+    if(data){
+        let contenido = "";
+
+        if(nombre.endsWith(".pdf")){
+            contenido = `<iframe src="${data}" width="100%" height="200px"></iframe>`;
+        } else {
+            contenido = `<img src="${data}" width="100%">`;
+        }
+
+        document.getElementById("file"+semana).innerHTML =
+            `<p>${nombre}</p>` + contenido;
+    }
+}
+
+window.onload = function(){
+    let rol = localStorage.getItem("rol");
+
+    for(let i=1; i<=4; i++){
+        mostrarArchivo(i);
+    }
+
+    if(rol === "visitante"){
+        let inputs = document.querySelectorAll("input[type='file']");
+        inputs.forEach(input => input.style.display = "none");
+    }
+}
+</script>
+
+</head>
+<body>
+
+<h1>Unidad I</h1>
+
+<div class="grid">
+
+<div class="card">
+    <h3>Semana 1</h3>
+    <input type="file" onchange="guardarArchivo(this,1)">
+    <div id="file1" class="file-name">No hay archivo</div>
+</div>
+
+<div class="card">
+    <h3>Semana 2</h3>
+    <input type="file" onchange="guardarArchivo(this,2)">
+    <div id="file2" class="file-name">No hay archivo</div>
+</div>
+
+<div class="card">
+    <h3>Semana 3</h3>
+    <input type="file" onchange="guardarArchivo(this,3)">
+    <div id="file3" class="file-name">No hay archivo</div>
+</div>
+
+<div class="card">
+    <h3>Semana 4</h3>
+    <input type="file" onchange="guardarArchivo(this,4)">
+    <div id="file4" class="file-name">No hay archivo</div>
+</div>
+
+</div>
+
+<a href="portafolio.html">⬅ Volver</a>
+
+</body>
+</html>

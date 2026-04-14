@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Introducción</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+    url("https://images.unsplash.com/photo-1518770660439-4636190af475");
+    background-size: cover;
+    color: white;
+}
+
+/* TITULO ARRIBA CENTRADO */
+.titulo {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 40px;
+    color: #38bdf8;
+}
+
+/* CONTENEDOR */
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 90vh;
+    gap: 40px;
+    padding: 40px;
+    margin-top: 60px;
+}
+
+/* TEXTO */
+.texto {
+    width: 40%;
+}
+
+/* IMAGEN */
+.imagen {
+    width: 35%;
+}
+
+.imagen img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* SUBTITULO */
+h2 {
+    color: #22c55e;
+}
+
+/* GRID UNIDADES */
+.grid-unidades {
+    display: grid;
+    grid-template-columns: repeat(2, 180px);
+    gap: 15px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+/* CARDS */
+.card {
+    background: #38bdf8;
+    padding: 15px;
+    text-align: center;
+    border-radius: 10px;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.card:hover {
+    background: #0ea5e9;
+    transform: scale(1.05);
+}
+
+/* BOTON */
+button {
+    margin-top: 15px;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+</style>
+
+</head>
+<body>
+
+<!-- TITULO -->
+<h1 class="titulo">INTRODUCCIÓN</h1>
+
+<div class="container">
+
+<!-- TEXTO -->
+<div class="texto">
+
+<h2 id="saludo"></h2>
+
+<p>
+La Arquitectura de Software es fundamental en la Ingeniería de Sistemas, 
+ya que permite diseñar sistemas eficientes, escalables y mantenibles.
+</p>
+
+<p>
+Este portafolio presenta el desarrollo del curso organizado por unidades y semanas,
+aplicando buenas prácticas y modelos de diseño.
+</p>
+
+<p>
+Desarrollado por <strong>Mario Espejo Espinoza</strong>.
+</p>
+
+<!-- UNIDADES -->
+<div class="grid-unidades">
+    <a href="unidad1.html" class="card">Unidad 1</a>
+    <a href="unidad2.html" class="card">Unidad 2</a>
+    <a href="unidad3.html" class="card">Unidad 3</a>
+    <a href="unidad4.html" class="card">Unidad 4</a>
+</div>
+
+<!-- BOTÓN VOLVER -->
+<button onclick="window.location.href='portafolio.html'" style="background:#ef4444;">
+⬅ Volver
+</button>
+
+</div>
+
+<!-- IMAGEN -->
+<div class="imagen">
+<img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c">
+</div>
+
+</div>
+
+<!-- SCRIPT -->
+<script>
+window.onload = function(){
+    let rol = localStorage.getItem("rol");
+
+    if(rol === "admin"){
+        document.getElementById("saludo").innerText = "Bienvenido Administrador";
+    } else {
+        document.getElementById("saludo").innerText = "Bienvenido Visitante";
+    }
+}
+</script>
+
+</body>
+</html>
