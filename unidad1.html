@@ -30,23 +30,28 @@ h1 {
     padding: 20px;
     border-radius: 15px;
     text-align: center;
+    transition: 0.3s;
 }
 
 .card:hover {
     background: #334155;
+    transform: scale(1.03);
 }
 
 .file-name {
     margin-top: 10px;
-    color: #94a3b8;
     font-size: 13px;
 }
 
 a {
     display: block;
-    text-align: center;
-    margin: 20px;
+    margin-top: 5px;
     color: #38bdf8;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
 }
 </style>
 
@@ -63,7 +68,7 @@ function guardarArchivo(input, semana) {
             mostrarArchivo(semana);
         };
 
-        lector.readAsDataURL(archivo); // convierte a base64
+        lector.readAsDataURL(archivo);
     }
 }
 
@@ -80,8 +85,19 @@ function mostrarArchivo(semana){
             contenido = `<img src="${data}" width="100%">`;
         }
 
-        document.getElementById("file"+semana).innerHTML =
-            `<p>${nombre}</p>` + contenido;
+        document.getElementById("file"+semana).innerHTML = `
+            <p><strong>${nombre}</strong></p>
+
+            ${contenido}
+
+            <a href="${data}" target="_blank" style="color:#22c55e;">
+                🔍 Ver documento
+            </a>
+
+            <a href="${data}" download="${nombre}">
+                ⬇ Descargar
+            </a>
+        `;
     }
 }
 
@@ -132,7 +148,7 @@ window.onload = function(){
 
 </div>
 
-<a href="portafolio.html">⬅ Volver</a>
+<a href="intro.html">⬅ Volver</a>
 
 </body>
 </html>
