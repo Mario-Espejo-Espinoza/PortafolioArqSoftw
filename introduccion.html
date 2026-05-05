@@ -2,153 +2,109 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Introducción</title>
 
 <style>
-body {
-    margin: 0;
-    font-family: Arial;
-    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
-    url("https://images.unsplash.com/photo-1518770660439-4636190af475");
-    background-size: cover;
-    color: white;
+
+body{
+    margin:0;
+    font-family:Arial;
+    background:#111827;
+    color:white;
 }
 
-/* TITULO ARRIBA CENTRADO */
-.titulo {
-    position: absolute;
-    top: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 40px;
-    color: #38bdf8;
+.container{
+    width:90%;
+    margin:auto;
+    padding:40px;
 }
 
-/* CONTENEDOR */
-.container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 90vh;
-    gap: 40px;
-    padding: 40px;
-    margin-top: 60px;
+h1{
+    text-align:center;
+    color:#60a5fa;
+    font-size:50px;
 }
 
-/* TEXTO */
-.texto {
-    width: 40%;
+.unidades{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:30px;
+    margin-top:50px;
 }
 
-/* IMAGEN */
-.imagen {
-    width: 35%;
+.card{
+    background:#1e293b;
+    padding:30px;
+    border-radius:20px;
+    text-align:center;
 }
 
-.imagen img {
-    width: 100%;
-    border-radius: 10px;
+.card h2{
+    color:#60a5fa;
 }
 
-/* SUBTITULO */
-h2 {
-    color: #22c55e;
+.btn{
+    display:inline-block;
+    margin-top:20px;
+    background:#2563eb;
+    color:white;
+    padding:12px 25px;
+    border-radius:10px;
+    text-decoration:none;
 }
 
-/* GRID UNIDADES */
-.grid-unidades {
-    display: grid;
-    grid-template-columns: repeat(2, 180px);
-    gap: 15px;
-    justify-content: center;
-    margin-top: 20px;
+.btn:hover{
+    background:#1d4ed8;
 }
 
-/* CARDS */
-.card {
-    background: #38bdf8;
-    padding: 15px;
-    text-align: center;
-    border-radius: 10px;
-    text-decoration: none;
-    color: black;
-    font-weight: bold;
-    transition: 0.3s;
-}
-
-.card:hover {
-    background: #0ea5e9;
-    transform: scale(1.05);
-}
-
-/* BOTON */
-button {
-    margin-top: 15px;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-}
 </style>
 
 </head>
 <body>
 
-<!-- TITULO -->
-<h1 class="titulo">INTRODUCCIÓN</h1>
-
 <div class="container">
 
-<!-- TEXTO -->
-<div class="texto">
+    <h1>UNIDADES DEL CURSO</h1>
+    <a href="index.html" class="btn">← Volver al Inicio</a>
 
-<h2 id="saludo"></h2>
+    <div class="unidades">
 
-<p>
-La arquitectura de software es la estructura fundamental de un sistema de software, compuesta por sus componentes, las relaciones entre ellos y los principios que guían su diseño y evolución, con el propósito de satisfacer requisitos funcionales y atributos de calidad como rendimiento, seguridad y mantenibilidad.
-</p>
+        <div class="card">
+            <h2>Unidad I</h2>
 
-<p>
-Este portafolio presenta el desarrollo del curso organizado por unidades y semanas,
-aplicando buenas prácticas y modelos de diseño.
-</p>
+            <a href="unidad1.html" class="btn">
+                Ingresar
+            </a>
+        </div>
 
+        <div class="card">
+            <h2>Unidad II</h2>
 
+            <a href="unidad2.html" class="btn">
+                Ingresar
+            </a>
+        </div>
 
-<!-- UNIDADES -->
-<div class="grid-unidades">
-    <a href="unidad1.html" class="card">Unidad 1</a>
-    <a href="unidad2.html" class="card">Unidad 2</a>
-    <a href="unidad3.html" class="card">Unidad 3</a>
-    <a href="unidad4.html" class="card">Unidad 4</a>
+        <div class="card">
+            <h2>Unidad III</h2>
+
+            <a href="unidad3.html" class="btn">
+                Ingresar
+            </a>
+        </div>
+
+        <div class="card">
+            <h2>Unidad IV</h2>
+
+            <a href="unidad4.html" class="btn">
+                Ingresar
+            </a>
+        </div>
+
+    </div>
+
 </div>
-
-<!-- BOTÓN VOLVER -->
-<button onclick="window.location.href='index.html'" style="background:#ef4444;">
-⬅ Volver
-</button>
-
-</div>
-
-<!-- IMAGEN -->
-<div class="imagen">
-<img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c">
-</div>
-
-</div>
-
-<!-- SCRIPT -->
-<script>
-window.onload = function(){
-    let rol = localStorage.getItem("rol");
-
-    if(rol === "admin"){
-        document.getElementById("saludo").innerText = "Bienvenido Administrador";
-    } else {
-        document.getElementById("saludo").innerText = "Bienvenido Visitante";
-    }
-}
-</script>
 
 </body>
 </html>
