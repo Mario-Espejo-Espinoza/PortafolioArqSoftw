@@ -2,110 +2,264 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Portafolio</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Portafolio Arquitectura de Software</title>
 
 <style>
-body {
-    margin: 0;
-    font-family: Arial;
-    color: white;
 
-    /* FONDO */
-    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
-    url("https://images.unsplash.com/photo-1518770660439-4636190af475");
-    background-size: cover;
-    background-position: center;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI', sans-serif;
 }
 
-/* TITULO ARRIBA */
-.titulo {
-    text-align: center;
-    margin-top: 40px;
-    color: #38bdf8;
-    font-size: 40px;
+body{
+    background:#111827;
+    color:white;
+    min-height:100vh;
 }
 
-/* CONTENEDOR CENTRADO */
-.container {
-    width: 300px;
-    margin: 60px auto;
-    text-align: center;
-    background: rgba(15, 23, 42, 0.85);
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0px 0px 20px rgba(0,0,0,0.5);
+/* NAVBAR */
+
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 60px;
+    background:#0f172a;
+    border-bottom:1px solid rgba(255,255,255,0.1);
 }
 
-/* FOTO */
-.foto {
-    width: 120px;
-    border-radius: 50%;
-    margin: 15px;
-    border: 3px solid #38bdf8;
+.logo-area{
+    display:flex;
+    align-items:center;
+    gap:15px;
 }
 
-/* INPUTS */
-input {
-    display: block;
-    margin: 10px auto;
-    padding: 10px;
-    width: 90%;
-    border-radius: 5px;
-    border: none;
+.logo{
+    width:70px;
+}
+
+.logo-area h2{
+    color:#60a5fa;
+}
+
+.logo-area p{
+    color:#cbd5e1;
+    font-size:14px;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin-left:30px;
+    transition:0.3s;
+    font-weight:500;
+}
+
+nav a:hover{
+    color:#60a5fa;
+}
+
+/* HERO */
+
+.hero{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:100px 20px;
+}
+
+/* TITULO */
+
+.hero h1{
+    font-size:90px;
+    line-height:1.1;
+    margin-bottom:20px;
+}
+
+.hero span{
+    color:#60a5fa;
+}
+
+/* NOMBRE */
+
+.nombre{
+    font-size:35px;
+    color:#cbd5e1;
+    margin-bottom:25px;
+    font-weight:bold;
+}
+
+/* TEXTO */
+
+.hero p{
+    font-size:24px;
+    color:#94a3b8;
+    max-width:800px;
+    line-height:1.6;
 }
 
 /* BOTON */
-button {
-    padding: 10px 20px;
-    background: #22c55e;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
+
+.btn{
+    display:inline-block;
+    margin-top:40px;
+    background:#2563eb;
+    color:white;
+    padding:18px 40px;
+    border-radius:12px;
+    text-decoration:none;
+    transition:0.3s;
+    font-weight:bold;
+    font-size:18px;
 }
 
-button:hover {
-    background: #16a34a;
+.btn:hover{
+    background:#1d4ed8;
+    transform:scale(1.05);
 }
+
+/* CARD */
+
+.card{
+    margin-top:60px;
+    width:85%;
+    background:#1e293b;
+    padding:40px;
+    border-radius:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.3);
+    border:1px solid rgba(255,255,255,0.05);
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:40px;
+}
+
+/* TEXTO CARD */
+
+.card-text{
+    width:60%;
+}
+
+.card-text h2{
+    margin-bottom:20px;
+    color:#60a5fa;
+    font-size:40px;
+    text-align:center;
+}
+
+.card-text p{
+    line-height:1.9;
+    color:#cbd5e1;
+    font-size:20px;
+    text-align:justify;
+}
+
+/* IMAGEN */
+
+.card-img{
+    width:35%;
+}
+
+.card-img img{
+    width:100%;
+    border-radius:15px;
+    box-shadow:0 10px 20px rgba(0,0,0,0.4);
+}
+
 </style>
-
-<script>
-function login() {
-    let user = document.getElementById("user").value;
-    let pass = document.getElementById("pass").value;
-
-    if(user === "admin" && pass === "1234"){
-        localStorage.setItem("rol", "admin");
-        alert("Modo Administrador");
-    } else {
-        localStorage.setItem("rol", "visitante");
-        alert("Modo Visitante");
-    }
-
-    window.location.href = "introduccion.html";
-}
-</script>
 
 </head>
 <body>
 
-<!-- LOGO UPLA -->
-<img src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Logo_UPLA.png"
-style="position:absolute; top:20px; right:20px; width:100px;">
+<!-- NAVBAR -->
 
-<!-- TITULO ARRIBA -->
-<h1 class="titulo">PORTAFOLIO<br>MARIO ESPEJO ESPINOZA</h1>
+<header class="navbar">
 
-<!-- CAJA LOGIN -->
-<div class="container">
+    <div class="logo-area">
 
-<img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" class="foto">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Escudo_Upla.png" class="logo">
 
-<input type="text" id="user" placeholder="Usuario">
-<input type="password" id="pass" placeholder="Contraseña">
+        <div>
+            <h2>UPLA</h2>
+            <p>Universidad Peruana Los Andes</p>
+        </div>
 
-<button onclick="login()">Ingresar</button>
+    </div>
 
-</div>
+    <nav>
+        <a href="index.html">Inicio</a>
+        <a href="login.html">Registrar</a>
+        <!-- 🔥 BOTÓN NUEVO (sin cambiar nada más) -->
+        <a href="index.html">Volver al Inicio</a>
+    </nav>
+
+</header>
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <h1>
+        MI <span>PORTAFOLIO</span>
+    </h1>
+
+    <div class="nombre">
+        Mario Espejo Espinoza
+    </div>
+
+    <p>
+        Arquitectura de Software <br>
+        Ingeniería de Sistemas y Computación
+    </p>
+
+    <!-- 🔥 SOLO ESTE CAMBIO -->
+    <a href="introduccion.html" class="btn" onclick="entrarVisitante()">
+        Ingresar al Portafolio
+    </a>
+
+    <!-- CARD -->
+
+    <div class="card">
+
+        <div class="card-text">
+
+            <h2>Arquitectura de Software</h2>
+
+            <p>
+                La Arquitectura de Software es una disciplina fundamental dentro de la Ingeniería de Sistemas, encargada de definir la estructura, organización y comportamiento de los sistemas informáticos. Permite establecer componentes, relaciones y principios de diseño que facilitan el desarrollo de aplicaciones eficientes, seguras, escalables y mantenibles.
+            </p>
+
+            <br>
+
+            <p>
+                A través de este curso se estudian estilos arquitectónicos, patrones de diseño y buenas prácticas orientadas a la construcción de soluciones tecnológicas modernas. Asimismo, se fortalece la capacidad de análisis y planificación en el desarrollo de software, considerando criterios de calidad, rendimiento y sostenibilidad.
+            </p>
+
+        </div>
+
+        <div class="card-img">
+
+            <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=1000&auto=format&fit=crop">
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- 🔥 SCRIPT NUEVO -->
+<script>
+function entrarVisitante(){
+    localStorage.setItem("rol","visitante");
+}
+</script>
 
 </body>
 </html>
